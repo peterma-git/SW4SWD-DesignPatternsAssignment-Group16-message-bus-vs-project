@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Dynamic;
 
 namespace message_bus_application;
 
@@ -7,19 +9,19 @@ namespace message_bus_application;
 public class TemperatureSensor
 {
     private MessageBus _mb;
-    private string _section;
+    private string Section { get; }
 
     public TemperatureSensor(MessageBus mb, string section)
     {
         _mb = mb;
-        _section = section;
+        Section = section;
     }
 
     public void Measure(double temperature)
     {
-        Console.WriteLine("Sensor in " + _section + " measured " + temperature + " °C");
+        Console.WriteLine("Sensor in " + Section + " measured " + temperature + " °C");
 
-        TemperatureMessage message = new TemperatureMessage(_section, temperature);
+        TemperatureMessage message = new TemperatureMessage(Section, temperature);
         _mb.Publish(message);
     }
 }

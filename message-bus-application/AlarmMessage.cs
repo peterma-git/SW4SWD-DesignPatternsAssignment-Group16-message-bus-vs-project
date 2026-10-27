@@ -4,13 +4,13 @@ namespace message_bus_application;
 public class AlarmMessage : IMessage
 {
     public string Section { get; }
-    public double Temperature { get; }
-    public string Reason { get; }
+    public double TempCelcius { get; }
+    public string Reason { get; }   // "too hot" or "too cold"
 
     public AlarmMessage(string section, double temperature, string reason)
     {
         Section = section;
-        Temperature = temperature;
+        TempCelcius = temperature;
         Reason = reason;
     }
 }

@@ -22,13 +22,13 @@ public class InfoScreen : IMessageHandler
     {
         if (message is TemperatureMessage)
         {
-            TemperatureMessage temperatureMessage = (TemperatureMessage)message;
-            AddMessage(temperatureMessage.Section + ": " + temperatureMessage.Temperature + " °C");
+            TemperatureMessage temperatureMessage = (TemperatureMessage)message; // cast in order to extract data
+            AddMessage(temperatureMessage.Section + ": " + temperatureMessage.TempCelcius + " °C");
         }
         else if (message is AlarmMessage)
         {
             AlarmMessage alarmMessage = (AlarmMessage)message;
-            AddMessage("ALARM! " + alarmMessage.Section + ": " + alarmMessage.Temperature + " °C is " + alarmMessage.Reason);
+            AddMessage("ALARM! " + alarmMessage.Section + ": " + alarmMessage.TempCelcius + " °C is " + alarmMessage.Reason);
         }
 
         Display();

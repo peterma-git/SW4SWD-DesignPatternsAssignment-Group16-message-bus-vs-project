@@ -24,20 +24,20 @@ public class AlarmMonitor : IMessageHandler
 
     private void CheckTemperature(TemperatureMessage message)
     {
-        if (message.Temperature < _minTemperature)
+        if (message.TempCelcius < _minTemperature)
         {
-            RaiseAlarm(message, "too cold (minimum is " + _minTemperature + " °C)");
+            RaiseAlarm(message, "too cold");
         }
-        else if (message.Temperature > _maxTemperature)
+        else if (message.TempCelcius > _maxTemperature)
         {
-            RaiseAlarm(message, "too hot (maximum is " + _maxTemperature + " °C)");
+            RaiseAlarm(message, "too hot");
         }
         // Otherwise the temperature is within the accepted range, so we do nothing.
     }
 
     private void RaiseAlarm(TemperatureMessage message, string reason)
     {
-        AlarmMessage alarm = new AlarmMessage(message.Section, message.Temperature, reason);
+        AlarmMessage alarm = new AlarmMessage(message.Section, message.TempCelcius, reason);
         _mb.Publish(alarm);
     }
 }
