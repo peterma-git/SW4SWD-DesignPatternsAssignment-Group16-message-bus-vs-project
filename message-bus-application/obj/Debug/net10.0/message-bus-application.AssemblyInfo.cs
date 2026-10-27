@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("message-bus-application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfe8f16e855b02554863afa35a46d4e43d853867")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f3d1830f422714eb494869fe84323b42a5da4dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("message-bus-application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("message-bus-application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
