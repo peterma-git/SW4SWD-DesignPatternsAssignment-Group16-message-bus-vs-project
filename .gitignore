@@ -1,0 +1,23 @@
+# Build
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.suo
+
+# NuGet
+*.nupkg
+packages/
+
+# Logs
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
