@@ -1,0 +1,180 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Greenhouse Example" id="greenhouse-example">
+    <mxGraphModel dx="1386" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TemperatureSensor -->
+        <mxCell id="sensor" value="TemperatureSensor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor-a" value="- _bus : MessageBus&lt;br&gt;- _zone : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="sensor">
+          <mxGeometry y="26" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="sensor">
+          <mxGeometry y="66" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor-o" value="+ Measure(celsius : double) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="sensor">
+          <mxGeometry y="74" width="240" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- MessageBus -->
+        <mxCell id="bus" value="MessageBus" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bus-a" value="- _subscribers : Dictionary&amp;lt;Type, List&amp;lt;object&amp;gt;&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="bus">
+          <mxGeometry y="26" width="360" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bus-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="bus">
+          <mxGeometry y="52" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="bus-o" value="+ Subscribe&amp;lt;T&amp;gt;(handler : IMessageHandler&amp;lt;T&amp;gt;) : void&lt;br&gt;+ Publish&amp;lt;T&amp;gt;(message : T) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="bus">
+          <mxGeometry y="60" width="360" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- IMessage -->
+        <mxCell id="imsg" value="«interface»&lt;br&gt;&lt;b&gt;IMessage&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="935" y="40" width="170" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- TemperatureMeasured -->
+        <mxCell id="tm" value="«record»&lt;br&gt;TemperatureMeasured" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="180" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tm-a" value="+ Zone : string&lt;br&gt;+ Celsius : double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tm">
+          <mxGeometry y="40" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- AlarmRaised -->
+        <mxCell id="ar" value="«record»&lt;br&gt;AlarmRaised" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="180" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ar-a" value="+ Zone : string&lt;br&gt;+ Reason : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ar">
+          <mxGeometry y="40" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- IMessageHandler<T> -->
+        <mxCell id="ihandler" value="«interface»&lt;br&gt;IMessageHandler&amp;lt;T : IMessage&amp;gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="240" width="260" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="ihandler-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="ihandler">
+          <mxGeometry y="40" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ihandler-o" value="+ Handle(message : T) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ihandler">
+          <mxGeometry y="48" width="260" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- AlarmMonitor -->
+        <mxCell id="monitor" value="AlarmMonitor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="420" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor-a" value="- _bus : MessageBus&lt;br&gt;- _threshold : double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="monitor">
+          <mxGeometry y="26" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="monitor">
+          <mxGeometry y="66" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor-o" value="+ Handle(message : TemperatureMeasured) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="monitor">
+          <mxGeometry y="74" width="300" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- Dashboard -->
+        <mxCell id="dash" value="Dashboard" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="420" width="300" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="dash-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="dash">
+          <mxGeometry y="26" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="dash-o" value="+ Handle(message : TemperatureMeasured) : void&lt;br&gt;+ Handle(message : AlarmRaised) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="dash">
+          <mxGeometry y="34" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- SmsNotifier (added in demo) -->
+        <mxCell id="sms" value="SmsNotifier" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="420" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sms-l" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="sms">
+          <mxGeometry y="26" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="sms-o" value="+ Handle(message : AlarmRaised) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="sms">
+          <mxGeometry y="34" width="240" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- Note -->
+        <mxCell id="note-sms" value="Added during the demo: plugs into the bus without changing any other class." style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;spacingLeft=6;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="900" y="290" width="230" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- Edges: messages realize IMessage -->
+        <mxCell id="e-tm-imsg" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;" edge="1" parent="1" source="tm" target="imsg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ar-imsg" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;" edge="1" parent="1" source="ar" target="imsg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Edges: publishers use the bus -->
+        <mxCell id="e-sensor-bus" value="publishes via" style="endArrow=open;endFill=0;endSize=10;html=1;rounded=0;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.4;entryDx=0;entryDy=0;labelBackgroundColor=default;" edge="1" parent="1" source="sensor" target="bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-monitor-bus" value="publishes via" style="endArrow=open;endFill=0;endSize=10;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.3;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;labelBackgroundColor=default;" edge="1" parent="1" source="monitor" target="bus">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Edges: publishers create messages -->
+        <mxCell id="e-sensor-tm" value="«create»" style="endArrow=open;dashed=1;endFill=0;endSize=10;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.12;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;" edge="1" parent="1" source="sensor" target="tm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="15" />
+              <mxPoint x="860" y="15" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-monitor-ar" value="«create»" style="endArrow=open;dashed=1;endFill=0;endSize=10;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.82;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;" edge="1" parent="1" source="monitor" target="ar">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="580" />
+              <mxPoint x="1179" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Edge: bus aggregates handlers -->
+        <mxCell id="e-bus-handler" value="subscribers&lt;br&gt;0..*" style="startArrow=diamondThin;startFill=0;startSize=14;endArrow=open;endFill=0;endSize=10;html=1;rounded=0;labelBackgroundColor=default;" edge="1" parent="1" source="bus" target="ihandler">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Edges: subscribers realize IMessageHandler<T> -->
+        <mxCell id="e-monitor-handler" value="«bind» T → TemperatureMeasured" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.85;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;fontSize=10;" edge="1" parent="1" source="monitor" target="ihandler">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="435" y="370" />
+              <mxPoint x="522" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-dash-handler" value="«bind» T → TemperatureMeasured&lt;br&gt;«bind» T → AlarmRaised" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.77;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;fontSize=10;" edge="1" parent="1" source="dash" target="ihandler">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-sms-handler" value="«bind» T → AlarmRaised" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.88;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;fontSize=10;" edge="1" parent="1" source="sms" target="ihandler">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="990" y="370" />
+              <mxPoint x="699" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Note anchor -->
+        <mxCell id="e-note-sms" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="note-sms" target="sms">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

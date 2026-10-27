@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/lena/git/SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project/message-bus-application/message-bus-application.csproj": {}
+    "C:\\Users\\idada\\SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project\\message-bus-application\\message-bus-application.csproj": {}
   },
   "projects": {
-    "/home/lena/git/SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project/message-bus-application/message-bus-application.csproj": {
+    "C:\\Users\\idada\\SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project\\message-bus-application\\message-bus-application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lena/git/SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project/message-bus-application/message-bus-application.csproj",
+        "projectUniqueName": "C:\\Users\\idada\\SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project\\message-bus-application\\message-bus-application.csproj",
         "projectName": "message-bus-application",
-        "projectPath": "/home/lena/git/SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project/message-bus-application/message-bus-application.csproj",
-        "packagesPath": "/home/lena/.nuget/packages/",
-        "outputPath": "/home/lena/git/SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project/message-bus-application/obj/",
+        "projectPath": "C:\\Users\\idada\\SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project\\message-bus-application\\message-bus-application.csproj",
+        "packagesPath": "C:\\Users\\idada\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\idada\\SW4SWD-DesignPatternsAssignment-Group16-message-bus-vs-project\\message-bus-application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/lena/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\idada\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -39,10 +40,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -60,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.113/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
