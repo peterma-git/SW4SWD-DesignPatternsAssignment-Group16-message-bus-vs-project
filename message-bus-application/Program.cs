@@ -1,29 +1,25 @@
-using message_bus_application.Applications;
-using message_bus_application.Bus;
-using message_bus_application.Messages;
+namespace message_bus_application
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            MessageBus messageBus = new MessageBus();
 
-var bus = new MessageBus();
+            // Subscribers (they subscribe themselves to the MessageBus in their constructors)
+            InfoScreen infoScreen = new InfoScreen(messageBus);
+            AlarmMonitor alarmMonitor = new AlarmMonitor(messageBus);
 
-// Publishers
-var sensorA = new TemperatureSensor(bus, "A");
-var sensorB = new TemperatureSensor(bus, "B");
+            // Publishers: one temperature sensor in each section
+            TemperatureSensor tomatoSensor = new TemperatureSensor(messageBus, "Tomato Section");
+            TemperatureSensor cucumberSensor = new TemperatureSensor(messageBus, "Cucumber Section");
 
-// Subscribers
-var dashboard = new Dashboard();
-var alarmMonitor = new AlarmMonitor(bus, threshold: 30.0);
-
-bus.Subscribe<TemperatureMeasured>(dashboard);
-bus.Subscribe<AlarmRaised>(dashboard);
-bus.Subscribe<TemperatureMeasured>(alarmMonitor);
-
-Console.WriteLine("=== Part 1: sensors, dashboard and alarm monitor ===");
-sensorA.Measure(22.5);
-sensorB.Measure(24.0);
-sensorB.Measure(31.5);
-
-Console.WriteLine();
-Console.WriteLine("=== Part 2: plug in an SmsNotifier - no other class changes ===");
-bus.Subscribe<AlarmRaised>(new SmsNotifier());
-
-sensorA.Measure(23.0);
-sensorA.Measure(33.0);
+            // Simulate some measurements
+            tomatoSensor.Measure(21);
+            cucumberSensor.Measure(23);
+            tomatoSensor.Measure(27);    // too hot  -> alarm
+            cucumberSensor.Measure(16);  // too cold -> alarm
+            tomatoSensor.Measure(22);
+        }
+    }
+}
