@@ -4,8 +4,8 @@ namespace message_bus_application;
 public class AlarmMonitor : IMessageHandler
 {
     private MessageBus _mb;
-    private double _minTemperature = 18;
-    private double _maxTemperature = 25;
+    private double LowerThreshold { get; } = 18;
+    private double UpperThreshold { get; }= 25;
 
     public AlarmMonitor(MessageBus mb)
     {
@@ -24,11 +24,11 @@ public class AlarmMonitor : IMessageHandler
 
     private void CheckTemperature(TemperatureMessage message)
     {
-        if (message.TempCelcius < _minTemperature)
+        if (message.TempCelcius < LowerThreshold)
         {
             RaiseAlarm(message, "too cold");
         }
-        else if (message.TempCelcius > _maxTemperature)
+        else if (message.TempCelcius > UpperThreshold)
         {
             RaiseAlarm(message, "too hot");
         }
