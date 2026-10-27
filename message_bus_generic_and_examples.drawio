@@ -98,7 +98,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="wIL1oE3NSWDs-lx9B8EC" name="Example Class Diagram">
-    <mxGraphModel dx="1348" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="786" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -212,7 +212,7 @@
         <mxCell id="cIiXYOo265rl7ZZaTl6O-6" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AlarmMonitor : IMessageHandler" vertex="1">
           <mxGeometry height="140" width="200" x="320" y="410" as="geometry" />
         </mxCell>
-        <mxCell id="cIiXYOo265rl7ZZaTl6O-7" parent="cIiXYOo265rl7ZZaTl6O-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ _mb : MessageBus&lt;/div&gt;- _threashold : double" vertex="1">
+        <mxCell id="cIiXYOo265rl7ZZaTl6O-7" parent="cIiXYOo265rl7ZZaTl6O-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;+ _mb : MessageBus&lt;/div&gt;- _upperThreashold : double&lt;div&gt;- _lowerThreashold : double&lt;/div&gt;" vertex="1">
           <mxGeometry height="47" width="200" y="26" as="geometry" />
         </mxCell>
         <mxCell id="cIiXYOo265rl7ZZaTl6O-8" parent="cIiXYOo265rl7ZZaTl6O-6" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
